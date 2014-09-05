@@ -31,7 +31,7 @@ that GitHub suggests:
 [https://help.github.com/articles/what-are-other-good-resources-for-learning-git-and-github][resources]
 
 If you have no experience with git a quick web-based try git tutorial will be helpful
-[https://try.github.io/levels/1/challenges/1][trygit]
+[Try Git](https://try.github.io/levels/1/challenges/1)
 
 ## Setting Up GitHub
 
@@ -75,12 +75,13 @@ The instructions are tested on bash/linux environments. Installing git should be
 apt-get / yum / etc install.  
 
 Instructions for installing git on Linux, OSX, or Windows can be found at
-[http://git-scm.com/book/en/Getting-Started-Installing-Git][installGit].
+[GitBook: Installing](http://git-scm.com/book/en/Getting-Started-Installing-Git).
 
 If you are using Eclipse, many versions come with git configured. The instructions will
 be slightly different than the command line instructions listed but will work for any OS. 
 Detailed instructions can
-be found at [http://wiki.eclipse.org/EGit/User_Guide][egit] or [http://eclipsesource.com/blogs/tutorials/egit-tutorial/][egit tutorial]. 
+be found at [EGit User Guide](http://wiki.eclipse.org/EGit/User_Guide) or 
+[EGit Tutorial](http://eclipsesource.com/blogs/tutorials/egit-tutorial).
 
 
 
