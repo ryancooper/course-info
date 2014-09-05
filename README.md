@@ -13,7 +13,6 @@ this course.
 
 ## Contents
 
-- [Motivation](#motivation)
 - [Learning Git](#learning-git)
 - [Setting up GitHub](#setting-up-github)
 - [Setting up Git](#setting-up-git)
@@ -22,24 +21,6 @@ this course.
 - [Word of Caution](#word-of-caution)
 - [Help!](#help)
 
-## Motivation
-
-The motivation for using Git and GitHub has two parts.
-
-The first part is a convenience factor for the instrutor and TAs. Not
-surprisingly, BlackBoard isn't the most friendly for assignments dealing with
-code. With Git, we can very easily clone all your solution repositories and pull
-in changes as you add to them. Since we make heavy use of unit testing in this
-course, we are able to automate things which really helps us as well.
-
-GitHub acts as a collection point for Git repositories. It makes it easy to
-collaborate and host code all while using Git either in a GUI or on the command
-line. It also has a very powerful API that we've made use to make our jobs
-easier.
-
-Secondly, we wish for you to get as much out of this course as possible. In
-addition to learning about programming languages, there isn't a single more
-powerful tool for programmers that can be learned than a version control system.
 
 ## Learning Git
 
@@ -49,10 +30,15 @@ mistakes and fixing them is a great way to learn. Here is a link to resources
 that GitHub suggests:
 [https://help.github.com/articles/what-are-other-good-resources-for-learning-git-and-github][resources]
 
+If you have no experience with git a quick web-based try git tutorial will be helpful
+[https://try.github.io/levels/1/challenges/1][trygit]
+
 ## Setting Up GitHub
 
 Assuming you have a solid enough understanding of Git, it's time to get started
 with GitHub.
+
+0. Install git
 
 1. If you don't already have an account, sign up for one here:
    [https://github.com/join][join].
@@ -83,6 +69,21 @@ with GitHub.
    homework answers and submit them.
 
 If the above didn't work, contact one of the TAs to help you out.
+
+### Installing git
+The instructions are tested on bash/linux environments. Installing git should be a simple
+apt-get / yum / etc install.  
+
+Instructions for installing git on Linux, OSX, or Windows can be found at
+[http://git-scm.com/book/en/Getting-Started-Installing-Git][installGit].
+
+If you are using Eclipse, many versions come with git configured. The instructions will
+be slightly different than the command line instructions listed but will work for any OS. 
+Detailed instructions can
+be found at [http://wiki.eclipse.org/EGit/User_Guide][egit] or [http://eclipsesource.com/blogs/tutorials/egit-tutorial/][egit tutorial]. 
+
+
+
 
 ## Setting Up Git
 
