@@ -25,26 +25,26 @@ this course.
 ## Learning Git
 
 There are numerous guides on using Git that are available. They range from being
-interactive ones to just text ones. Find one that works and experiment; making
+interactive to just text-based. Find one that works and experiment; making
 mistakes and fixing them is a great way to learn. Here is a link to resources
 that GitHub suggests:
-[https://help.github.com/articles/what-are-other-good-resources-for-learning-git-and-github][resources]
+[https://help.github.com/articles/what-are-other-good-resources-for-learning-git-and-github][resources].
 
-If you have no experience with git a quick web-based try git tutorial will be helpful
-[Try Git](https://try.github.io/levels/1/challenges/1)
+If you have no experience with git, you may find the following web-based tutorial helpful:
+[Try Git](https://try.github.io/levels/1/challenges/1).
 
 ## Setting Up GitHub
 
-Assuming you have a solid enough understanding of Git, it's time to get started
+Now that you have a basic understanding of Git, it's time to get started
 with GitHub.
 
-0. Install git
+0. Install git. (See below for suggestions).
 
 1. If you don't already have an account, sign up for one here:
    [https://github.com/join][join].
 
 2. Next you need to join the GitHub Organization that we've created for the
-   course: [MIT-DB-Class]
+   course: [MIT-DB-Class].
 
    To join it, go to the [Registration](http://mitdbclass.heroku.com/)
    page and click the **Sign in with GitHub** button.
@@ -55,17 +55,15 @@ with GitHub.
 3. Enter your MIT ID and you'll be automatically added to the organization and
    will have a repository created for you.
 
-4. If for whatever reason you can't join the organization, contact a TA,
-   and them him know.
+4. If for whatever reason you can't join the organization, contact a TA for help.
 
 5. You should now be apart of the [MIT-DB-Class] and should have access
    to a few different repositories.
 
-   You should also now have a repository setup just for your homework solutions.
-   This should be located in the MIT-DB-Class organization and be called
-   `hw-answers-<MIT ID here>`.
+   You should also now have a repository set up just for your homework solutions.
+   This should be called `hw-answers-<MIT ID here>` and located in the MIT-DB-Class organization.
 
-   This is what you'll setup in the next section to allow you to write your
+   This is what you'll set up in the next section to allow you to write your
    homework answers and submit them.
 
 If the above didn't work, contact one of the TAs to help you out.
@@ -92,7 +90,7 @@ You should have Git installed and have joined the MIT-DB-Class organization from
 the previous section.
 
 1. The first thing we have to do is to clone the current homework repository by
-   issuing the following commands onto the command line:
+   issuing the following commands on the command line:
 
    ```bash
     $ git clone git@github.com:MIT-DB-Class/simple-db-hw.git
@@ -110,7 +108,7 @@ the previous section.
     fatal: Could not read from remote repository.
     ```
 
-    More likely the cause is that you just haven't finished setting up your
+    Most likely the cause is that you just haven't finished setting up your
     GitHub account. You just need to [setup an SSH key][ssh-key] to allow
     pushing and pulling over SSH.
 
@@ -129,7 +127,7 @@ the previous section.
         origin git@github.com:MIT-DB-Class/simple-db-hw.git (push)
    ```
 
-   We don't want that remote to be the origin, instead, we want to change it to
+   We don't want that remote to be the origin. Instead, we want to change it to
    point to your repository. To do that, issue the following command:
 
    ```bash
@@ -151,7 +149,7 @@ the previous section.
     $ git remote add origin git@github.com:MIT-DB-Class/hw-answers-<MIT ID>.git
    ```
 
-   But substitute in your own MIT ID of course.
+   But substitute your own MIT ID of course.
 
    If you have an error that looks like the following:
 
@@ -175,7 +173,7 @@ the previous section.
    This solution was found from [StackOverflow](http://stackoverflow.com/a/2432799) thanks to
    [Cassidy Williams](https://github.com/cassidoo).
 
-   For reference, your final `git remote -v` should look like following when its
+   For reference, your final `git remote -v` should look like following when it's
    setup correctly:
 
 
@@ -205,7 +203,7 @@ the previous section.
     To git@github.com:MIT-DB-Class/hw-answers-joshuad.git   f726472..545a4f0  master -> master
    ```
 
-5. That last command was a bit special and only needs to be ran the first time
+5. That last command was a bit special and only needs to be run the first time
    to setup the remote tracking branches. Now we should be able to just run `git
    push` without the arguments. Try it and you should get the following:
 
@@ -215,12 +213,12 @@ the previous section.
    ```
 
 If you don't know Git that well, this probably seemed very arcane. Just keep
-using Git and you'll keep understanding more and more.
+using Git and you'll understand more and more.
 
 ## Getting Newly Released Homework
 
 Pulling in homeworks that are released or previous homework solutions should be
-easy just so long as you set up your repository based on the instructions from
+easy as long as you set up your repository based on the instructions from
 the last section.
 
 1. All new homework and previous homework solutions will be posted to the
@@ -257,10 +255,10 @@ The criteria for your homework being submitted on time is that your code must be
 instructor were to open up GitHub, they would be able to see your solutions on
 the GitHub web page.
 
-Just because your code has been commited on your local machine, that doens't
+Just because your code has been commited on your local machine does not
 mean that it has been **submitted**; it needs to be on GitHub.
 
-Here are a few guideline steps for a process of submitting your solutions:
+Here are a few guidelines for submitting your solutions:
 
 1. Look at your current repository status.
 
@@ -297,13 +295,13 @@ Here are a few guideline steps for a process of submitting your solutions:
    Just navigate to your repository and check that your latest commits are on
    GitHub.
 
-6. The go and eat some cinnamon rolls; you've finished the homework
-   assignment.
+6. Now go and eat some cinnamon rolls; you've finished the homework
+   assignment!
 
 ## Word of Caution
 
 Git is a distributed version control system. This means everything operates
-offline until a `git pull` or `git push`. This is a great feature.
+offline until you run `git pull` or `git push`. This is a great feature.
 
 The bad thing is that you may forget to `git push` your changes. This is why we
 strongly, **strongly** suggest that you check GitHub to be sure that what you
@@ -311,8 +309,8 @@ want us to see matches up with what you expect.
 
 ## Help!
 
-If at any point you need help with setting all this up. Feel free to reach out
-to one of the TAs or instructor. Their contact information can be found in the
+If at any point you need help with setting all this up, feel free to reach out
+to one of the TAs or the instructor. Their contact information can be found in the
 [syllabus][syllabus].
 
 [join]: https://github.com/join
