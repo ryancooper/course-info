@@ -52,7 +52,7 @@ with GitHub.
    This application uses OAuth and it will take you to GitHub where you will
    have to give your permission to join it.
 
-3. Enter your NetID and you'll be automatically added to the organization and
+3. Enter your MIT ID and you'll be automatically added to the organization and
    will have a repository created for you.
 
 4. If for whatever reason you can't join the organization, contact a TA,
@@ -63,7 +63,7 @@ with GitHub.
 
    You should also now have a repository setup just for your homework solutions.
    This should be located in the MIT-DB-Class organization and be called
-   `hw-answers-<NetID here>`.
+   `hw-answers-<MIT ID here>`.
 
    This is what you'll setup in the next section to allow you to write your
    homework answers and submit them.
@@ -148,10 +148,10 @@ the previous section.
    one. Issue the following but substituting your GitHub username in place:
 
    ```bash
-    $ git remote add origin git@github.com:MIT-DB-Class/hw-answers-<NetID>.git
+    $ git remote add origin git@github.com:MIT-DB-Class/hw-answers-<MIT ID>.git
    ```
 
-   But substitute in your own NetID of course.
+   But substitute in your own MIT ID of course.
 
    If you have an error that looks like the following:
 
@@ -169,7 +169,7 @@ the previous section.
    just issue the following command:
    
    ```bash
-   $ git remote set-url origin git@github.com:MIT-DB-Class/hw-answers-<NetID>.git
+   $ git remote set-url origin git@github.com:MIT-DB-Class/hw-answers-<MIT ID>.git
    ```
 
    This solution was found from [StackOverflow](http://stackoverflow.com/a/2432799) thanks to
@@ -183,8 +183,8 @@ the previous section.
     $ git remote -v
         upstream git@github.com:MIT-DB-Class/simple-db-hw.git (fetch)
         upstream git@github.com:MIT-DB-Class/simple-db-hw.git (push)
-        origin git@github.com:MIT-DB-Class/hw-answers-<NetID>.git (fetch)
-        origin git@github.com:MIT-DB-Class/hw-answers-<NetID>.git (push)
+        origin git@github.com:MIT-DB-Class/hw-answers-<MIT ID>.git (fetch)
+        origin git@github.com:MIT-DB-Class/hw-answers-<MIT ID>.git (push)
    ```
 
 4. Let's test it out by doing a push of your master branch to GitHub by issuing
