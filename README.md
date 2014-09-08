@@ -148,13 +148,11 @@ the previous section.
    ```
 
 3. Lastly we need to give your repository a new `origin` since it is lacking
-   one. Issue the following but substituting your GitHub username in place:
+   one. Issue the following command, substituting your athena username:
 
    ```bash
-    $ git remote add origin git@github.com:MIT-DB-Class/hw-answers-<MIT ID>.git
+    $ git remote add origin git@github.com:MIT-DB-Class/hw-answers-<athena-username>.git
    ```
-
-   But substitute your own MIT ID of course.
 
    If you have an error that looks like the following:
 
@@ -218,19 +216,21 @@ the previous section.
    ```
 
 If you don't know Git that well, this probably seemed very arcane. Just keep
-using Git and you'll understand more and more.
+using Git and you'll understand more and more.   You aren't required to use commands like commit and push as you develop your labs, but will find them useful for debugging.  We'll provide explicit instructions on how to use these commands to actually upload your final lab solution.
 
 ## Getting Newly Released Labs
 
+(You don't need to follow these instructions until Lab 2.)
+
 Pulling in labs that are released or previous lab solutions should be
-easy as long as you set up your repository based on the instructions from
+easy as long as you set up your repository based on the instructions in
 the last section.
 
 1. All new lab and previous lab solutions will be posted to the
    [labs](https://github.com/MIT-DB-Class/simple-db-hw) repository in the class
    organization.
 
-   Check it periodically as well as BlackBoard's announcements for updates on
+   Check it periodically as well as Piazza's announcements for updates on
    when the new labs are released.
 
 2. Once a lab is released, pulling in the changes should be fairly simple:
