@@ -14,9 +14,7 @@ Course git repositories will be hosted as a  repository in github.  Github is a 
 hosts runs git servers for thousands of open source projects.  In our case, your code will be
 in a private repository that is visible only to you and course staff.
 
-This document describes what you need to do to get started with get, and also
-
-download and upload labs.
+This document describes what you need to do to get started with git, and also download and upload labs.
 
 Course Setup
 ============
