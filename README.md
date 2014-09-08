@@ -4,6 +4,19 @@ course-info
 GitHub Repo for http://db.csail.mit.edu/6.830/
 
 
+We will be using git, a source code control tool, for labs in 6.830.  This
+will allow you to download the code for the labs, and also submit the
+labs in a standarized format that will streamline grading.
+
+You will also be able to use git to commit your progress on the labs as you go.
+
+Course git repositories will be hosted as a  repository in github.  Github is a website that
+hosts runs git servers for thousands of open source projects.  In our case, your code will be
+in a private repository that is visible only to you and course staff.
+
+This document describes what you need to do to get started with get, and also
+
+download and upload labs.
 
 Course Setup
 ============
@@ -16,8 +29,8 @@ this course.
 - [Learning Git](#learning-git)
 - [Setting up GitHub](#setting-up-github)
 - [Setting up Git](#setting-up-git)
-- [Getting Newly Released Homework](#getting-newly-released-homework)
-- [Submitting Your Homework](#submitting-your-homework)
+- [Getting Newly Released Labs](#getting-newly-released-lab)
+- [Submitting Your Labs](#submitting-your-lab)
 - [Word of Caution](#word-of-caution)
 - [Help!](#help)
 
@@ -60,11 +73,11 @@ with GitHub.
 5. You should now be apart of the [MIT-DB-Class] and should have access
    to a few different repositories.
 
-   You should also now have a repository set up just for your homework solutions.
+   You should also now have a repository set up just for your lab solutions.
    This should be called `hw-answers-<MIT ID here>` and located in the MIT-DB-Class organization.
 
    This is what you'll set up in the next section to allow you to write your
-   homework answers and submit them.
+   lab answers and submit them.
 
 If the above didn't work, contact one of the TAs to help you out.
 
@@ -89,21 +102,21 @@ be found at [EGit User Guide](http://wiki.eclipse.org/EGit/User_Guide) or
 You should have Git installed and have joined the MIT-DB-Class organization from
 the previous section.
 
-1. The first thing we have to do is to clone the current homework repository by
+1. The first thing we have to do is to clone the current lab repository by
    issuing the following commands on the command line:
 
    ```bash
     $ git clone git@github.com:MIT-DB-Class/simple-db-hw.git
    ```
 
-   This will make a complete replica of the homework repository locally. Now we
+   This will make a complete replica of the lab repository locally. Now we
    are going to change it to point to your personal repository that was created
    for you in the previous section.
 
    If you get an error that looks like:
 
    ```bash
-    Cloning into 'homework'...
+    Cloning into 'lab'...
     Permission denied (publickey).
     fatal: Could not read from remote repository.
     ```
@@ -215,20 +228,20 @@ the previous section.
 If you don't know Git that well, this probably seemed very arcane. Just keep
 using Git and you'll understand more and more.
 
-## Getting Newly Released Homework
+## Getting Newly Released Labs
 
-Pulling in homeworks that are released or previous homework solutions should be
+Pulling in labs that are released or previous lab solutions should be
 easy as long as you set up your repository based on the instructions from
 the last section.
 
-1. All new homework and previous homework solutions will be posted to the
-   [homeworks](https://github.com/MIT-DB-Class/simple-db-hw) repository in the class
+1. All new lab and previous lab solutions will be posted to the
+   [labs](https://github.com/MIT-DB-Class/simple-db-hw) repository in the class
    organization.
 
    Check it periodically as well as BlackBoard's announcements for updates on
-   when the new homeworks are released.
+   when the new labs are released.
 
-2. Once a homework is released, pulling in the changes should be fairly simple:
+2. Once a lab is released, pulling in the changes should be fairly simple:
 
    ```bash
         $ git pull upstream master
@@ -242,15 +255,15 @@ the last section.
         $ git merge upstream/master
    ```
 
-3. If you've followed the instructions in each homework, you should have no
+3. If you've followed the instructions in each lab, you should have no
    merge conflicts and everything should be peachy.
 
-## Submitting Your Homework
+## Submitting Your Labs
 
-The submission of your homework should be done by the date and time the homework
+The submission of your lab should be done by the date and time the lab
 is due.
 
-The criteria for your homework being submitted on time is that your code must be
+The criteria for your lab being submitted on time is that your code must be
 **pushed** by the date and time. This means that if one of the TAs or the
 instructor were to open up GitHub, they would be able to see your solutions on
 the GitHub web page.
@@ -295,7 +308,7 @@ Here are a few guidelines for submitting your solutions:
    Just navigate to your repository and check that your latest commits are on
    GitHub.
 
-6. Now go and eat some cinnamon rolls; you've finished the homework
+6. Now go and eat some cinnamon rolls; you've finished the lab
    assignment!
 
 ## Word of Caution
