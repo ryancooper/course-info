@@ -10,11 +10,11 @@ labs in a standarized format that will streamline grading.
 
 You will also be able to use git to commit your progress on the labs as you go.
 
-Course git repositories will be hosted as a  repository in github.  Github is a website that
+Course git repositories will be hosted as a  repository in GitHub.  GitHub is a website that
 hosts runs git servers for thousands of open source projects.  In our case, your code will be
 in a private repository that is visible only to you and course staff.
 
-This document describes what you need to do to get started with git, and also download and upload 6.830/6.814 labs via github.
+This document describes what you need to do to get started with git, and also download and upload 6.830/6.814 labs via GitHub.
 
 ## Contents
 
