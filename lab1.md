@@ -52,7 +52,7 @@ bug fixes, new commits to the HW repo, etc., as bugs and issues are reported.
 -->
 <!--which you can find [here](bugs.html).</p>-->
 
-##  1. Getting started 
+## 0. Environment Setup
 
 These instructions are written for Athena or any other Unix-based
 platform (e.g., Linux, MacOS, etc.)  Because the code is written in
@@ -61,8 +61,12 @@ document may not apply.
 
 We have included [Section 1.2](#eclipse) on using the project with Eclipse.
 
-Start by downloading the code for lab 1 from the course GitHub repository by following the 
- instructions [here](https://github.com/MIT-DB-Class/course-info).
+
+**Start by downloading the code for lab 1 from the course GitHub repository by following the 
+ instructions [here](https://github.com/MIT-DB-Class/course-info).**
+
+
+##  1. Getting started 
 
 
 SimpleDB uses the [Ant build tool](http://ant.apache.org/) to compile the code and run tests.
