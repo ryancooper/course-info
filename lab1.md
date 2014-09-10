@@ -841,7 +841,7 @@ To git@github.com:MIT-DB-Class/hw-answers-becca.git
 ```
 
 
-If the above command worked for you, you can skip to item 6 below.  If not, here are a few guidelines for submitting your solutions for lab 1:
+If the above command worked for you, you can skip to item 6 below.  If not, submit your solutions for lab 1 as follows:
 
 1. Look at your current repository status.
 
