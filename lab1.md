@@ -773,7 +773,7 @@ Note that `ant` compiles `test.java` and generates a new jarfile that contains i
 You must submit your code (see below) as well as a short (2 pages, maximum)
 writeup describing your approach.  This writeup should:
 
-*     Describe any design decisions you made. These may be minimal for Lab 1.
+*    Describe any design decisions you made. These may be minimal for Lab 1.
 *    Discuss and justify any changes you made to the API.
 *    Describe any missing or incomplete elements of your code.
 *    Describe how long you spent on the lab, and whether there was anything you found particularly difficult or confusing. 
@@ -792,12 +792,75 @@ that, untarred, it creates a <tt>6.830-lab1/src/simpledb</tt> directory with
 your code) and submit it on the [6.830 Stellar Site](https://stellar.mit.edu/S/course/6/sp13/6.830/index.html). You can use the `ant handin` target to generate the tarball.
 -->
 
-**Instructions will soon be updated on how to submit your assignment through git. 
-It will be important for you to `git push` your lab-1 branch so we can pull and grade your branch** 
 You may submit your code multiple times; we will use the latest version you
 submit that arrives before the deadline (before 11:59 PM on the due date). 
 Place the write-up in a file called <tt>answers.txt</tt> or 
 <tt>answers.pdf</tt> in the top level of your <tt>simple-db-hw</tt> directory.
+
+The criteria for your lab being submitted on time is that your code must be
+**tagged** and 
+**pushed** by the date and time. This means that if one of the TAs or the
+instructor were to open up GitHub, they would be able to see your solutions on
+the GitHub web page.
+
+Just because your code has been commited on your local machine does not
+mean that it has been **submitted**; it needs to be on GitHub.
+
+There will be a bash script `turnInLab1.sh` that commits your changes, deletes any prior tag
+for the current lab, tags the current commit, and pushes the branch and tag 
+to github.
+
+If you cannot use the script, here are a few guidelines for submitting your solutions for lab 1 (*replace lab ID with the current lab*). :
+
+1. Look at your current repository status.
+
+   ```bash
+   $ git status
+   ```
+
+2. Add and commit your code changes (if they aren't already added and commited).
+
+   ```bash
+    $ git commit -a -m 'Lab 1'
+   ```
+
+3. Delete any prior local and remote tag (*this will return an error if you have not tagged previously; this allows you to submit multiple times*)
+
+   ```bash
+   $ git tag -d lab1
+   $ git push origin :refs/tags/lab1
+   ```
+
+4. Tag your last commit as the lab to be graded (*again, updae for the right lab ID*)
+   ```bash
+   $ git tag -a lab1 -m 'lab1'
+   ```
+
+5. This is the most important part: **push** your solutions to GitHub.
+
+   ```bash
+   $ git push origin master
+   $ git push origin lab1 
+   ```
+
+6. The last thing that we strongly recommend you do is to go to the
+   [MIT-DB-Class] organization page on GitHub to
+   make sure that we can see your solutions.
+
+   Just navigate to your repository and check that your latest commits are on
+   GitHub. You should also be able to check 
+   `https://github.com/MIT-DB-Class/hw-answers-(your student name)/tree/lab1`
+
+
+#### <a name="word-of-caution"></a> Word of Caution
+
+Git is a distributed version control system. This means everything operates
+offline until you run `git pull` or `git push`. This is a great feature.
+
+The bad thing is that you may forget to `git push` your changes. This is why we
+strongly, **strongly** suggest that you check GitHub to be sure that what you
+want us to see matches up with what you expect.
+
 
 <a name="bugs"></a>
 
