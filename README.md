@@ -20,7 +20,7 @@ This document describes what you need to do to get started with git, and also do
 
 - [Learning Git](#learning-git)
 - [Setting up GitHub](#setting-up-github)
-- [Setting up Git](#installing-git)
+- [Installing Git](#installing-git)
 - [Setting up Git](#setting-up-git)
 - [Getting Newly Released Labs](#getting-newly-released-lab)
 - [Submitting Your Labs](#submitting-your-lab)
