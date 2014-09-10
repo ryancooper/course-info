@@ -4,20 +4,26 @@ course-info
 GitHub Repo for http://db.csail.mit.edu/6.830/
 
 
+We will be using git, a source code control tool, for labs in 6.830.  This
+will allow you to download the code for the labs, and also submit the
+labs in a standarized format that will streamline grading.
 
-Course Setup
-============
+You will also be able to use git to commit your progress on the labs as you go.
 
-This will guide you through understanding how we will be using Git & GitHub for
-this course.
+Course git repositories will be hosted as a  repository in GitHub.  GitHub is a website that
+hosts runs git servers for thousands of open source projects.  In our case, your code will be
+in a private repository that is visible only to you and course staff.
+
+This document describes what you need to do to get started with git, and also download and upload 6.830/6.814 labs via GitHub.
 
 ## Contents
 
 - [Learning Git](#learning-git)
 - [Setting up GitHub](#setting-up-github)
+- [Installing Git](#installing-git)
 - [Setting up Git](#setting-up-git)
-- [Getting Newly Released Homework](#getting-newly-released-homework)
-- [Submitting Your Homework](#submitting-your-homework)
+- [Getting Newly Released Labs](#getting-newly-released-lab)
+- [Submitting Your Labs](#submitting-your-lab)
 - [Word of Caution](#word-of-caution)
 - [Help!](#help)
 
@@ -25,26 +31,26 @@ this course.
 ## Learning Git
 
 There are numerous guides on using Git that are available. They range from being
-interactive ones to just text ones. Find one that works and experiment; making
+interactive to just text-based. Find one that works and experiment; making
 mistakes and fixing them is a great way to learn. Here is a link to resources
 that GitHub suggests:
-[https://help.github.com/articles/what-are-other-good-resources-for-learning-git-and-github][resources]
+[https://help.github.com/articles/what-are-other-good-resources-for-learning-git-and-github][resources].
 
-If you have no experience with git a quick web-based try git tutorial will be helpful
-[Try Git](https://try.github.io/levels/1/challenges/1)
+If you have no experience with git, you may find the following web-based tutorial helpful:
+[Try Git](https://try.github.io/levels/1/challenges/1).
 
-## Setting Up GitHub
+## <a name="setting-up-github"></a> Setting Up GitHub
 
-Assuming you have a solid enough understanding of Git, it's time to get started
+Now that you have a basic understanding of Git, it's time to get started
 with GitHub.
 
-0. Install git
+0. Install git. (See below for suggestions).
 
 1. If you don't already have an account, sign up for one here:
    [https://github.com/join][join].
 
 2. Next you need to join the GitHub Organization that we've created for the
-   course: [MIT-DB-Class]
+   course: [MIT-DB-Class].
 
    To join it, go to the [Registration](http://mitdbclass.heroku.com/)
    page and click the **Sign in with GitHub** button.
@@ -52,25 +58,23 @@ with GitHub.
    This application uses OAuth and it will take you to GitHub where you will
    have to give your permission to join it.
 
-3. Enter your NetID and you'll be automatically added to the organization and
+3. Enter your MIT ID and you'll be automatically added to the organization and
    will have a repository created for you.
 
-4. If for whatever reason you can't join the organization, contact a TA,
-   and them him know.
+4. If for whatever reason you can't join the organization, contact a TA for help.
 
 5. You should now be apart of the [MIT-DB-Class] and should have access
    to a few different repositories.
 
-   You should also now have a repository setup just for your homework solutions.
-   This should be located in the MIT-DB-Class organization and be called
-   `hw-answers-<NetID here>`.
+   You should also now have a repository set up just for your lab solutions.
+   This should be called `hw-answers-<MIT ID here>` and located in the MIT-DB-Class organization.
 
-   This is what you'll setup in the next section to allow you to write your
-   homework answers and submit them.
+   This is what you'll set up in the next section to allow you to write your
+   lab answers and submit them.
 
 If the above didn't work, contact one of the TAs to help you out.
 
-### Installing git
+### Installing git <a name="installing-git"></a>
 The instructions are tested on bash/linux environments. Installing git should be a simple
 apt-get / yum / etc install.  
 
@@ -86,31 +90,31 @@ be found at [EGit User Guide](http://wiki.eclipse.org/EGit/User_Guide) or
 
 
 
-## Setting Up Git
+## Setting Up Git <a name="setting-up-git"></a>
 
 You should have Git installed and have joined the MIT-DB-Class organization from
 the previous section.
 
-1. The first thing we have to do is to clone the current homework repository by
-   issuing the following commands onto the command line:
+1. The first thing we have to do is to clone the current lab repository by
+   issuing the following commands on the command line:
 
    ```bash
     $ git clone git@github.com:MIT-DB-Class/simple-db-hw.git
    ```
 
-   This will make a complete replica of the homework repository locally. Now we
+   This will make a complete replica of the lab repository locally. Now we
    are going to change it to point to your personal repository that was created
    for you in the previous section.
 
    If you get an error that looks like:
 
    ```bash
-    Cloning into 'homework'...
+    Cloning into 'lab'...
     Permission denied (publickey).
     fatal: Could not read from remote repository.
     ```
 
-    More likely the cause is that you just haven't finished setting up your
+    Most likely the cause is that you just haven't finished setting up your
     GitHub account. You just need to [setup an SSH key][ssh-key] to allow
     pushing and pulling over SSH.
 
@@ -129,7 +133,7 @@ the previous section.
         origin git@github.com:MIT-DB-Class/simple-db-hw.git (push)
    ```
 
-   We don't want that remote to be the origin, instead, we want to change it to
+   We don't want that remote to be the origin. Instead, we want to change it to
    point to your repository. To do that, issue the following command:
 
    ```bash
@@ -145,13 +149,11 @@ the previous section.
    ```
 
 3. Lastly we need to give your repository a new `origin` since it is lacking
-   one. Issue the following but substituting your GitHub username in place:
+   one. Issue the following command, substituting your athena username:
 
    ```bash
-    $ git remote add origin git@github.com:MIT-DB-Class/hw-answers-<NetID>.git
+    $ git remote add origin git@github.com:MIT-DB-Class/hw-answers-<athena-username>.git
    ```
-
-   But substitute in your own NetID of course.
 
    If you have an error that looks like the following:
 
@@ -169,13 +171,13 @@ the previous section.
    just issue the following command:
    
    ```bash
-   $ git remote set-url origin git@github.com:MIT-DB-Class/hw-answers-<NetID>.git
+   $ git remote set-url origin git@github.com:MIT-DB-Class/hw-answers-<MIT ID>.git
    ```
 
    This solution was found from [StackOverflow](http://stackoverflow.com/a/2432799) thanks to
    [Cassidy Williams](https://github.com/cassidoo).
 
-   For reference, your final `git remote -v` should look like following when its
+   For reference, your final `git remote -v` should look like following when it's
    setup correctly:
 
 
@@ -183,8 +185,8 @@ the previous section.
     $ git remote -v
         upstream git@github.com:MIT-DB-Class/simple-db-hw.git (fetch)
         upstream git@github.com:MIT-DB-Class/simple-db-hw.git (push)
-        origin git@github.com:MIT-DB-Class/hw-answers-<NetID>.git (fetch)
-        origin git@github.com:MIT-DB-Class/hw-answers-<NetID>.git (push)
+        origin git@github.com:MIT-DB-Class/hw-answers-<MIT ID>.git (fetch)
+        origin git@github.com:MIT-DB-Class/hw-answers-<MIT ID>.git (push)
    ```
 
 4. Let's test it out by doing a push of your master branch to GitHub by issuing
@@ -205,7 +207,7 @@ the previous section.
     To git@github.com:MIT-DB-Class/hw-answers-joshuad.git   f726472..545a4f0  master -> master
    ```
 
-5. That last command was a bit special and only needs to be ran the first time
+5. That last command was a bit special and only needs to be run the first time
    to setup the remote tracking branches. Now we should be able to just run `git
    push` without the arguments. Try it and you should get the following:
 
@@ -215,22 +217,24 @@ the previous section.
    ```
 
 If you don't know Git that well, this probably seemed very arcane. Just keep
-using Git and you'll keep understanding more and more.
+using Git and you'll understand more and more.   You aren't required to use commands like commit and push as you develop your labs, but will find them useful for debugging.  We'll provide explicit instructions on how to use these commands to actually upload your final lab solution.
 
-## Getting Newly Released Homework
+## Getting Newly Released Labs <a name="getting-newly-released-lab"></a>
 
-Pulling in homeworks that are released or previous homework solutions should be
-easy just so long as you set up your repository based on the instructions from
+(You don't need to follow these instructions until Lab 2.)
+
+Pulling in labs that are released or previous lab solutions should be
+easy as long as you set up your repository based on the instructions in
 the last section.
 
-1. All new homework and previous homework solutions will be posted to the
-   [homeworks](https://github.com/MIT-DB-Class/simple-db-hw) repository in the class
+1. All new lab and previous lab solutions will be posted to the
+   [labs](https://github.com/MIT-DB-Class/simple-db-hw) repository in the class
    organization.
 
-   Check it periodically as well as BlackBoard's announcements for updates on
-   when the new homeworks are released.
+   Check it periodically as well as Piazza's announcements for updates on
+   when the new labs are released.
 
-2. Once a homework is released, pulling in the changes should be fairly simple:
+2. Once a lab is released, pulling in the changes should be fairly simple:
 
    ```bash
         $ git pull upstream master
@@ -244,23 +248,28 @@ the last section.
         $ git merge upstream/master
    ```
 
-3. If you've followed the instructions in each homework, you should have no
+3. If you've followed the instructions in each lab, you should have no
    merge conflicts and everything should be peachy.
 
-## Submitting Your Homework
+## <a name="submitting-your-lab"></a> Submitting Your Labs
 
-The submission of your homework should be done by the date and time the homework
+The submission of your lab should be done by the date and time the lab
 is due.
 
-The criteria for your homework being submitted on time is that your code must be
+The criteria for your lab being submitted on time is that your code must be
+**tagged** and 
 **pushed** by the date and time. This means that if one of the TAs or the
 instructor were to open up GitHub, they would be able to see your solutions on
 the GitHub web page.
 
-Just because your code has been commited on your local machine, that doens't
+Just because your code has been commited on your local machine does not
 mean that it has been **submitted**; it needs to be on GitHub.
 
-Here are a few guideline steps for a process of submitting your solutions:
+There will be a bash script that commits your changes, deletes any prior tag
+for the current lab, tags the current commit, and pushes the branch and tag 
+to github.
+
+If you cannot use the script, here are a few guidelines for submitting your solutions for lab 1 (**update for lab ID for future labs**). :
 
 1. Look at your current repository status.
 
@@ -268,51 +277,53 @@ Here are a few guideline steps for a process of submitting your solutions:
    $ git status
    ```
 
-2. Add your solutions (if they aren't already added and commited).
+2. Add and commit your code changes (if they aren't already added and commited).
 
    ```bash
-    $ git add my-solutions/
+    $ git commit -a -m 'Lab 1'
    ```
 
-3. Commit your solutions.
+3. Delete any prior local and remote tag (*this will return an error if you have not tagged previously; this allows you to submit multiple times*)
 
    ```bash
-   $ git commit
+   $ git tag -d lab1
+   $ git push origin :refs/tags/lab1
    ```
 
-   Enter your commit message and then save and exit.
+4. Tag your last commit as the lab to be graded (*again, updae for the right lab ID*)
+   ```bash
+   $ git tag -a lab1 -m 'lab1'
+   ```
 
-4. This is the most important part: **push** your solutions to GitHub.
+5. This is the most important part: **push** your solutions to GitHub.
 
    ```bash
    $ git push origin master
+   $ git push origin lab1 
    ```
 
-   Or, just `git push` for short.
-
-5. The last thing that we strongly recommend you do is to go to the
+6. The last thing that we strongly recommend you do is to go to the
    [MIT-DB-Class] organization page on GitHub to
    make sure that we can see your solutions.
 
    Just navigate to your repository and check that your latest commits are on
-   GitHub.
+   GitHub. You should also be able to check 
+   `https://github.com/MIT-DB-Class/hw-answers-(your student name)/tree/lab1`
 
-6. The go and eat some cinnamon rolls; you've finished the homework
-   assignment.
 
-## Word of Caution
+## <a name="word-of-caution"></a> Word of Caution
 
 Git is a distributed version control system. This means everything operates
-offline until a `git pull` or `git push`. This is a great feature.
+offline until you run `git pull` or `git push`. This is a great feature.
 
 The bad thing is that you may forget to `git push` your changes. This is why we
 strongly, **strongly** suggest that you check GitHub to be sure that what you
 want us to see matches up with what you expect.
 
-## Help!
+## <a name="help"></a> Help!
 
-If at any point you need help with setting all this up. Feel free to reach out
-to one of the TAs or instructor. Their contact information can be found in the
+If at any point you need help with setting all this up, feel free to reach out
+to one of the TAs or the instructor. Their contact information can be found in the
 [syllabus][syllabus].
 
 [join]: https://github.com/join
