@@ -308,7 +308,7 @@ If you cannot use the script, here are a few guidelines for submitting your solu
 
    Just navigate to your repository and check that your latest commits are on
    GitHub. You should also be able to check 
-   https://github.com/MIT-DB-Class/hw-answers-(your student name)/tree/lab1
+   `https://github.com/MIT-DB-Class/hw-answers-(your student name)/tree/lab1`
 
 
 ## <a name="word-of-caution"></a> Word of Caution
