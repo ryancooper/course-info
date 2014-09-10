@@ -265,11 +265,11 @@ the GitHub web page.
 Just because your code has been commited on your local machine does not
 mean that it has been **submitted**; it needs to be on GitHub.
 
-There will be a bash script that commits your changes, deletes any prior tag
+There will be a bash script `turnInLab1.sh` that commits your changes, deletes any prior tag
 for the current lab, tags the current commit, and pushes the branch and tag 
 to github.
 
-If you cannot use the script, here are a few guidelines for submitting your solutions for lab 1 (**update for lab ID for future labs**). :
+If you cannot use the script, here are a few guidelines for submitting your solutions for lab 1 (*replace lab ID with the current lab*). :
 
 1. Look at your current repository status.
 
