@@ -812,9 +812,36 @@ mean that it has been **submitted**; it needs to be on GitHub.
 
 There will be a bash script `turnInLab1.sh` that commits your changes, deletes any prior tag
 for the current lab, tags the current commit, and pushes the branch and tag 
-to github.
+to github.  If you are using Linux or Mac OSX, you should be able to run the following:
 
-If you cannot use the script, here are a few guidelines for submitting your solutions for lab 1 (*replace lab ID with the current lab*). :
+   ```bash
+   $ ./turnInLab1.sh
+   ```
+You should see something like the following output:
+
+ ```bash
+ $ ./turnInLab1.sh 
+[master b155ba0] Lab 1
+ 1 file changed, 1 insertion(+)
+Deleted tag 'lab1' (was b26abd0)
+To git@github.com:MIT-DB-Class/hw-answers-becca.git
+ - [deleted]         lab1
+Counting objects: 11, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (6/6), 448 bytes | 0 bytes/s, done.
+Total 6 (delta 3), reused 0 (delta 0)
+To git@github.com:MIT-DB-Class/hw-answers-becca.git
+   ae31bce..b155ba0  master -> master
+Counting objects: 1, done.
+Writing objects: 100% (1/1), 152 bytes | 0 bytes/s, done.
+Total 1 (delta 0), reused 0 (delta 0)
+To git@github.com:MIT-DB-Class/hw-answers-becca.git
+ * [new tag]         lab1 -> lab1
+```
+
+
+If the above command worked for you, you can skip to item 6 below.  If not, here are a few guidelines for submitting your solutions for lab 1:
 
 1. Look at your current repository status.
 
@@ -835,7 +862,7 @@ If you cannot use the script, here are a few guidelines for submitting your solu
    $ git push origin :refs/tags/lab1
    ```
 
-4. Tag your last commit as the lab to be graded (*again, updae for the right lab ID*)
+4. Tag your last commit as the lab to be graded
    ```bash
    $ git tag -a lab1 -m 'lab1'
    ```
