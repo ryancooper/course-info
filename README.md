@@ -257,6 +257,7 @@ The submission of your lab should be done by the date and time the lab
 is due.
 
 The criteria for your lab being submitted on time is that your code must be
+**tagged** and 
 **pushed** by the date and time. This means that if one of the TAs or the
 instructor were to open up GitHub, they would be able to see your solutions on
 the GitHub web page.
@@ -264,7 +265,11 @@ the GitHub web page.
 Just because your code has been commited on your local machine does not
 mean that it has been **submitted**; it needs to be on GitHub.
 
-Here are a few guidelines for submitting your solutions:
+There will be a bash script that commits your changes, deletes any prior tag
+for the current lab, tags the current commit, and pushes the branch and tag 
+to github.
+
+If you cannot use the script, here are a few guidelines for submitting your solutions for lab 1 (**update for lab ID for future labs**). :
 
 1. Look at your current repository status.
 
@@ -272,37 +277,39 @@ Here are a few guidelines for submitting your solutions:
    $ git status
    ```
 
-2. Add your solutions (if they aren't already added and commited).
+2. Add and commit your code changes (if they aren't already added and commited).
 
    ```bash
-    $ git add my-solutions/
+    $ git commit -a -m 'Lab 1'
    ```
 
-3. Commit your solutions.
+3. Delete any prior local and remote tag (*this will return an error if you have not tagged previously; this allows you to submit multiple times*)
 
    ```bash
-   $ git commit
+   $ git tag -d lab1
+   $ git push origin :refs/tags/lab1
    ```
 
-   Enter your commit message and then save and exit.
+4. Tag your last commit as the lab to be graded (*again, updae for the right lab ID*)
+   ```bash
+   $ git tag -a lab1 -m 'lab1'
+   ```
 
-4. This is the most important part: **push** your solutions to GitHub.
+5. This is the most important part: **push** your solutions to GitHub.
 
    ```bash
    $ git push origin master
+   $ git push origin lab1 
    ```
 
-   Or, just `git push` for short.
-
-5. The last thing that we strongly recommend you do is to go to the
+6. The last thing that we strongly recommend you do is to go to the
    [MIT-DB-Class] organization page on GitHub to
    make sure that we can see your solutions.
 
    Just navigate to your repository and check that your latest commits are on
-   GitHub.
+   GitHub. You should also be able to check 
+   https://github.com/MIT-DB-Class/hw-answers-(your student name)/tree/lab1
 
-6. Now go and eat some cinnamon rolls; you've finished the lab
-   assignment!
 
 ## <a name="word-of-caution"></a> Word of Caution
 
