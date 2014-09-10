@@ -229,9 +229,9 @@ for Java Developers (not the enterprise edition) with Java 1.6.0_20 on Ubuntu
 
 **Setting the Lab Up in Eclipse**
 
-*    Once Eclipse is installed, start it, and note that the first screen asks you to select a location for your workspace (we will refer to this directory as $W).
+*    Once Eclipse is installed, start it, and note that the first screen asks you to select a location for your workspace (we will refer to this directory as $W). Select the directory containing your simple-db-hw repository.
 *    In Eclipse, select File->New->Project->Java->Java Project, and push Next.
-*    Enter "6.830-lab1" as the project name.
+*    Enter "simple-db-hw" as the project name.
 *    On the same screen that you entered the project name, select "Create project from existing source," and browse to $W/simple-db-hw.
 *    Click finish, and you should be able to see "simple-db-hw" as a new project in the Project Explorer tab on the left-hand side of your screen. Opening this project reveals the directory structure discussed above - implementation code can be found in "src," and unit tests and system tests found in "test." 
 
@@ -241,7 +241,7 @@ for Java Developers (not the enterprise edition) with Java 1.6.0_20 on Ubuntu
 
 To run a unit test or system test (both are JUnit tests, and can be
 initialized the same way), go to the
-Package Explorer tab on the left side of your screen.  Under the "6.830-lab1"
+Package Explorer tab on the left side of your screen.  Under the "simple-db-hw"
 project, open the "test" directory.  Unit tests are found in the "simpledb"
 package, and system tests are found in the "simpledb.systemtests" package.
 To run one of these tests, select the test (they are all called *Test.java -
@@ -672,7 +672,9 @@ Good work!
 
 You will fill in other operators in subsequent labs.
 
-### <a name="query_walkthrough">2.7. A simple query</a>
+<a name="query_walkthrough"></a>
+
+### 2.7. A simple query
 
 The purpose of this section is to illustrate how these various components are
 connected together to process a simple query.
@@ -795,13 +797,13 @@ It will be important for you to `git push` your lab-1 branch so we can pull and 
 You may submit your code multiple times; we will use the latest version you
 submit that arrives before the deadline (before 11:59 PM on the due date). 
 Place the write-up in a file called <tt>answers.txt</tt> or 
-<tt>answers.pdf</tt> in the top level of your <tt>6.830-lab1</tt> directory.
+<tt>answers.pdf</tt> in the top level of your <tt>simple-db-hw</tt> directory.
 
 <a name="bugs"></a>
 
 ###  3.3. Submitting a bug 
 
-Please submit (friendly!) bug reports to [6830-staff@nms.csail.mit.edu](mailto:6830-staff@nms.csail.mit.edu).
+Please submit (friendly!) bug reports to [6.830-staff@mit.edu](mailto:6.830-staff@mit.edu).
 When you do, please try to include:
 
 
@@ -820,7 +822,7 @@ give you a candy bar!
 
 <p>75% of your grade will be based on whether or not your code passes the
 system test suite we will run over it. These tests will be a superset of the
-tests we have provided. Before handing in your code, you should make sure produces
+tests we have provided. Before handing in your code, you should make sure it produces
 no errors (passes all of the tests) from both  <tt>ant test</tt> and <tt>ant systemtest</tt>.
 
 **Important:** before testing, we will replace your <tt>build.xml</tt>
