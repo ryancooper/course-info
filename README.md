@@ -20,6 +20,7 @@ This document describes what you need to do to get started with git, and also do
 
 - [Learning Git](#learning-git)
 - [Setting up GitHub](#setting-up-github)
+- [Setting up Git](#installing-git)
 - [Setting up Git](#setting-up-git)
 - [Getting Newly Released Labs](#getting-newly-released-lab)
 - [Submitting Your Labs](#submitting-your-lab)
@@ -38,7 +39,7 @@ that GitHub suggests:
 If you have no experience with git, you may find the following web-based tutorial helpful:
 [Try Git](https://try.github.io/levels/1/challenges/1).
 
-## Setting Up GitHub
+## <a name="setting-up-github"></a> Setting Up GitHub
 
 Now that you have a basic understanding of Git, it's time to get started
 with GitHub.
@@ -73,7 +74,7 @@ with GitHub.
 
 If the above didn't work, contact one of the TAs to help you out.
 
-### Installing git
+### Installing git <a name="installing-git"></a>
 The instructions are tested on bash/linux environments. Installing git should be a simple
 apt-get / yum / etc install.  
 
@@ -89,7 +90,7 @@ be found at [EGit User Guide](http://wiki.eclipse.org/EGit/User_Guide) or
 
 
 
-## Setting Up Git
+## Setting Up Git <a name="setting-up-git"></a>
 
 You should have Git installed and have joined the MIT-DB-Class organization from
 the previous section.
@@ -218,7 +219,7 @@ the previous section.
 If you don't know Git that well, this probably seemed very arcane. Just keep
 using Git and you'll understand more and more.   You aren't required to use commands like commit and push as you develop your labs, but will find them useful for debugging.  We'll provide explicit instructions on how to use these commands to actually upload your final lab solution.
 
-## Getting Newly Released Labs
+## Getting Newly Released Labs <a name="getting-newly-released-lab"></a>
 
 (You don't need to follow these instructions until Lab 2.)
 
@@ -250,7 +251,7 @@ the last section.
 3. If you've followed the instructions in each lab, you should have no
    merge conflicts and everything should be peachy.
 
-## Submitting Your Labs
+## <a name="submitting-your-lab"></a> Submitting Your Labs
 
 The submission of your lab should be done by the date and time the lab
 is due.
@@ -303,7 +304,7 @@ Here are a few guidelines for submitting your solutions:
 6. Now go and eat some cinnamon rolls; you've finished the lab
    assignment!
 
-## Word of Caution
+## <a name="word-of-caution"></a> Word of Caution
 
 Git is a distributed version control system. This means everything operates
 offline until you run `git pull` or `git push`. This is a great feature.
@@ -312,7 +313,7 @@ The bad thing is that you may forget to `git push` your changes. This is why we
 strongly, **strongly** suggest that you check GitHub to be sure that what you
 want us to see matches up with what you expect.
 
-## Help!
+## <a name="help"></a> Help!
 
 If at any point you need help with setting all this up, feel free to reach out
 to one of the TAs or the instructor. Their contact information can be found in the
