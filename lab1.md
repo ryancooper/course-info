@@ -354,7 +354,7 @@ for use in later labs.
 *   Views.
 *  Data types except integers and fixed length strings.
 * (In this lab) Query optimizer.
-*   Indices.
+* (In this lab) Indices.
 
 <p>
 
