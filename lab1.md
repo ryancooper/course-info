@@ -545,7 +545,9 @@ less than a full byte of header information.)
 
 The low (least significant) bits of each byte represents the status of the
 slots that are earlier in the file.  Hence, the lowest bit of the first byte
-represents whether or not the first slot in the page is in use.  Also, note
+represents whether or not the first slot in the page is in use. The second 
+lowest bit of the first byte represents whether or not the second slot in the 
+page is in use, and so on.  Also, note
 that the high-order bits of the last byte may not correspond to a slot
 that is actually in the file, since the number of slots may not be a multiple
 of 8.  Also note that all Java virtual machines are [big-endian](http://en.wikipedia.org/wiki/Endianness).
