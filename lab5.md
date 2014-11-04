@@ -98,7 +98,7 @@ In this lab, you will implement code to perform both of these
 functions.
 
 The optimizer will be invoked from <tt>simpledb/Parser.java</tt>.  You may wish
-to review the <a href="lab2.html#parser">lab 2 parser exercise</a>
+to review the <a href="https://github.com/MIT-DB-Class/course-info/blob/master/lab2.md#parser">lab 2 parser exercise</a>
 before starting this lab.  Briefly, if you have a catalog file
 <tt>catalog.txt</tt> describing your tables, you can run the parser by
 typing:
@@ -250,21 +250,17 @@ values in the table:
 
 *  Compute the minimum and maximum values for every attribute in the table (by scanning
 it once).
-
 *  Construct a histogram for every attribute in the table. A simple
 approach is to use a fixed number of buckets *NumB*,
 with
 each bucket representing the number of records in a fixed range of the
 domain of the attribute of the histogram.  For example, if a field
-*f*
-ranges from 1 to 100, and there are 10 buckets, then bucket 1 might
+*f* ranges from 1 to 100, and there are 10 buckets, then bucket 1 might
 contain the count of the number of records between 1 and 10, bucket
 2 a count of the number of records between 11 and 20, and so on.
-
 *  Scan the table again, selecting out all of fields of all of the
 tuples and using them to populate the counts of the buckets
 in each histogram.
-
 *  To estimate the selectivity of an equality expression,
 *f=const*, compute the bucket that contains value *const*.
 Suppose the width (range of values) of the bucket is *w*, the height (number of
@@ -272,14 +268,13 @@ tuples) is *h*,
 and the number of tuples in the table is *ntups*.  Then, assuming
 values are uniformly distributed throughout the bucket, the selectivity of
 the
-expression is roughly * (h / w) / ntups *, since *(h/w)*
+expression is roughly *(h / w) / ntups*, since *(h/w)*
 represents the expected number of tuples in the bin with value
 *const*.
-
 *  To estimate the selectivity of a range expression *f>const*,
 compute the
 bucket *b* that *const* is in, with width *w_b* and height
-*h_b*.  Then, *b* contains a fraction <nobr>*b_f = h_b / ntups * </nobr>of the
+*h_b*.  Then, *b* contains a fraction <nobr>*b_f = h_b / ntups* </nobr>of the
 total tuples.  Assuming tuples are uniformly distributed throughout *b*,
 the fraction *b_part* of *b* that is *> const* is
 <nobr>*(b_right - const) / w_b*</nobr>, where *b_right* is the right endpoint of
@@ -290,7 +285,6 @@ selectivity (which can be computed using a formula similar to
 *b_f* above).  Summing the selectivity contributions of all the
 buckets will yield the overall selectivity of the expression. 
 Figure 2 illustrates this process.
-
 *  Selectivity of expressions involving *less than* can be performed
 similar to the greater than case, looking at buckets down to 0.
 
@@ -344,18 +338,15 @@ implemented a method for tracking statistics such as histograms, you
 should implement the <tt>TableStats</tt> constructor, adding code
 to scan the table (possibly multiple times) to build the statistics
 you need.
-
 *   Implement <tt>estimateSelectivity(int field, Predicate.Op op,
 Field constant)</tt>: Using your statistics (e.g., an <tt>IntHistogram</tt>
 or <tt>StringHistogram</tt> depending on the type of the field), estimate
 the selectivity of predicate <tt>field op constant</tt> on the table.
-
 *   Implement <tt>estimateScanCost()</tt>: This method estimates the
 cost of sequentially scanning the file, given that the cost to read
 a page is <tt>costPerPageIO</tt>.  You can assume that there are no
 seeks and that no pages are in the buffer pool.  This method may
 use costs or sizes you computed in the constructor.
-
 *   Implement <tt>estimateTableCardinality(double
 selectivityFactor)</tt>: This method returns the number of tuples
 in the relation, given that a predicate with selectivity
@@ -382,7 +373,7 @@ fancy for this, though one of the optional excercises in Section 2.4
 includes a histogram-based method for join selectivity estimation.
 
 
-While implementing, your simple solution, you  should keep in mind the following:
+While implementing your simple solution, you  should keep in mind the following:
 
 <!--  
   * <a name="change">The following three paragraphs are different in this version of the lab. </a> *
@@ -420,7 +411,6 @@ right input of cardinality card2, that the cost to scan the left
 input is cost1, and that the cost to access the right input is
 card2.  You can assume the join is an NL join, and apply
 the formula mentioned earlier.
-
 *  Implement <tt>estimateJoinCardinality(LogicalJoinNode j, int
 card1, int card2, boolean t1pkey, boolean t2pkey)</tt>: This
 method estimates the number of tuples output by join j, given that
@@ -593,18 +583,15 @@ query optimization!
 
 ***
 **Bonus Exercises.** Each of these bonuses is worth up to 5% extra credit:
+
 *  *Add code to perform more advanced join cardinality estimation*.
 Rather than using simple heuristics to estimate join cardinality,
 devise a more sophisticated algorithm.      
-
 * One option is to use joint histograms between
 every pair of attributes *a* and *b* in every pair of tables *t1* and *t2*.
 The idea is to create buckets of *a*, and for each bucket *A* of *a*, create a
 histogram of *b* values that co-occur with *a* values in *A*.
-
-<!-- <span class="style1">ADDED BY MAGDA:</span> --> 
 *  Another  way to estimate the cardinality of a join is to assume that each value in the smaller table has a matching value in the larger table. Then the formula for the join selectivity would be: 1/(*Max*(*num-distinct*(t1, column1), *num-distinct*(t2, column2))). Here, column1 and column2 are the join attributes.  The cardinality of the join is then the product of the cardinalities of *t1* and *t2* times the selectivity. <br>
-
 *  *Improved subset iterator*.  Our implementation of
 <tt>enumerateSubsets</tt> is quite inefficient, because it creates
 a large number of Java objects on each invocation.  A better
@@ -615,7 +602,6 @@ In this bonus exercise, you would improve the performance of
 <tt>enumerateSubsets</tt> so that your system could perform query
 optimization on plans with 20 or more joins (currently such plans
 takes minutes or hours to compute).
-
 *  *A cost model that accounts for caching*.  The methods to
 estimate scan and join cost do not account for caching in the
 buffer pool.  You should extend the cost model to account for
@@ -623,14 +609,12 @@ caching effects.  This is tricky because multiple joins are
 running simultaneously due to the iterator model, and so it may be
 hard to predict how much memory each will have access to using the
 simple buffer pool we have implemented in previous labs.
-
 *  *Improved join algorithms and algorithm selection*.  Our
 current cost estimation and join operator selection algorithms
 (see <tt>instantiateJoin()</tt> in <tt>JoinOptimizer.java</tt>)
 only consider nested loops joins.  Extend these methods to use one
 or more additional join algorithms (for example, some form of in
 memory hashing using a <tt>HashMap</tt>).
-
 *  *Bushy plans*.  Improve the provided <tt>orderJoins()</tt> and other helper
 methods to generate bushy joins.  Our query plan
 generation and visualization algorithms are perfectly capable of
@@ -651,14 +635,10 @@ writeup describing your approach.  This writeup should:
 *  Describe any design decisions you made, including methods for selectivity estimation,
 join ordering, as well as any of the bonus exercises you chose to implement and how
 you implemented them (for each bonus exercise you may submit up to 1 additional page).
-
 *  Discuss and justify any changes you made to the API.
-
 *  Describe any missing or incomplete elements of your code.
-
 *  Describe how long you spent on the lab, and whether there was anything
 you found particularly difficult or confusing.
-
 
 ###  3.1. Collaboration 
 This lab should be manageable for a single person, but if you prefer
@@ -798,10 +778,8 @@ Please submit (friendly!) bug reports to <a href="mailto:6.830-staff@mit.edu">6.
 When you do, please try to include:
 
 * A description of the bug.
-
 * A <tt>.java</tt> file we can drop in the
 `test/simpledb` directory, compile, and run.
-
 * A <tt>.txt</tt> file with the data that reproduces the bug.  We should be
 able to convert it to a <tt>.dat</tt> file using `HeapFileEncoder`.
 
