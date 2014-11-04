@@ -453,10 +453,10 @@ extra credit by implementing a more efficient enumerator.
 
 Second, we have provided the method:
 ```java
-    private CostCard computeCostAndCardOfSubplan(HashMap&ltString, TableStats> stats, 
-                                                HashMap&ltString, Double> filterSelectivities, 
+    private CostCard computeCostAndCardOfSubplan(HashMap<String, TableStats> stats, 
+                                                HashMap<String, Double> filterSelectivities, 
                                                 LogicalJoinNode joinToRemove,  
-                                                Set&ltLogicalJoinNode> joinSet,
+                                                Set<LogicalJoinNode> joinSet,
                                                 double bestCostSoFar,
                                                 PlanCache pc) 
 ```
@@ -480,10 +480,10 @@ psuedocode described earlier.
 
 Third, we have provided the method:
 ```java
-    private void printJoins(Vector&ltLogicalJoinNode> js, 
+    private void printJoins(Vector<LogicalJoinNode> js, 
                            PlanCache pc,
-                           HashMap&ltString, TableStats> stats,
-                           HashMap&ltString, Double> selectivities)
+                           HashMap<String, TableStats> stats,
+                           HashMap<String, Double> selectivities)
 ```
 
 This method can be used to display a graphical representation of a join plan (when the "explain" flag is set via
@@ -500,8 +500,8 @@ needed to use <tt>computeCostAndCardOfSubplan</tt>).
 
 In <tt>JoinOptimizer.java</tt>, implement the method:
 ```java
-  Vector<LogicalJoinNode> orderJoins(HashMap&ltString, TableStats> stats, 
-                   HashMap&ltString, Double> filterSelectivities,  
+  Vector<LogicalJoinNode> orderJoins(HashMap<String, TableStats> stats, 
+                   HashMap<String, Double> filterSelectivities,  
                    boolean explain)
 ```
 
