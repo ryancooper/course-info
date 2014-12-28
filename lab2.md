@@ -307,8 +307,7 @@ need to ensure that the RecordID in the tuple is updated correctly.
   
 
   At this point, your code should pass the unit tests in HeapPageWriteTest and
-  HeapFileWriteTest. We have not provided additional unit tests for
-  `HeapFile.deleteTuple()` or `BufferPool`.
+  HeapFileWriteTest, as well as BufferPoolWriteTest.
 
  
 
