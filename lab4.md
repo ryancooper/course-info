@@ -259,8 +259,6 @@ locks in the following situations:
 At this point, your code should pass the unit tests in
 LockingTest.
 
-You may remember that B+ trees can prevent phantom tuples from showing up between two consecutive range scans by using next-key locking. Since SimpleDB uses page-level, strict two-phase locking, protection against phantoms effectively comes for free if the B+ tree is implemented correctly. Thus, at this point you should also be able to pass BPlusTreeNextKeyLockingTest.
-
 ***
 
 ###  2.6. Implementing NO STEAL 
@@ -342,6 +340,9 @@ implemented `TransactionId`.
   At this point, your code should pass the `TransactionTest` unit test and the
   `AbortEvictionTest` system test.  You may find the `TransactionTest` system test
   illustrative, but it will likely fail until you complete the next exercise.
+  
+You may remember that B+ trees can prevent phantom tuples from showing up between two consecutive range scans by using next-key locking. Since SimpleDB uses page-level, strict two-phase locking, protection against phantoms effectively comes for free if the B+ tree is implemented correctly. Thus, at this point you should also be able to pass BPlusTreeNextKeyLockingTest.
+
 
 ***
 
