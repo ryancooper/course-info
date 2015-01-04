@@ -256,7 +256,14 @@ the last section.
 You may submit your code multiple times; we will use the latest version you
 submit that arrives before the deadline (before 11:59 PM on the due date). 
 Place the write-up in a file called <tt>answers.txt</tt> or 
-<tt>answers.pdf</tt> in the top level of your <tt>simple-db-hw</tt> directory.
+<tt>answers.pdf</tt> in the top level of your <tt>simple-db-hw</tt> directory.  
+**Important:** In order for your write-up to be added to the git repo, you need to explicitly add it:
+
+```
+git add answers.txt
+```
+You also need to explicitly add any other files you create, such as new *.java 
+files.
 
 The criteria for your lab being submitted on time is that your code must be
 **tagged** and 
