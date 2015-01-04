@@ -259,8 +259,8 @@ Place the write-up in a file called <tt>answers.txt</tt> or
 <tt>answers.pdf</tt> in the top level of your <tt>simple-db-hw</tt> directory.  **Important:** 
 In order for your write-up to be added to the git repo, you need to explicitly add it:
 
-```
-git add answers.txt
+```bash
+$ git add answers.txt
 ```
 You also need to explicitly add any other files you create, such as new *.java 
 files.
