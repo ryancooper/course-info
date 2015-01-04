@@ -402,8 +402,10 @@ evictPage, which should call flushPage on any dirty page it evicts.
   
 
   If you did not implement `writePage()` in
-  <tt>HeapFile.java</tt> above, you will also need to do that here.						 
-
+  <tt>HeapFile.java</tt> above, you will also need to do that here. Finally,
+  you should also implement `discardPage()` to remove a page from the
+  buffer pool *without* flushing it to disk.  We will not test `discardPage()`
+  in this lab, but it will be necessary for future labs.
   
 
   At this point, your code should pass the EvictionTest system test.
