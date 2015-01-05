@@ -116,7 +116,7 @@ As described in the textbook, attempting to delete a tuple from a leaf page that
 In this exercise you will implement `stealFromLeafPage()`, `stealFromLeftInternalPage()`, `stealFromRightInternalPage()`, `mergeLeafPages()` and `mergeInternalPages()` in `BTreeFile.java`. In the first three functions you will implement code to evenly redistribute tuples/entries if the siblings have tuples/entries to spare. Remember to update the corresponding key field in the parent. In `stealFromLeftInternalPage()`/`stealFromRightInternalPage()`, you will also need to update the parent pointers of the children that were moved. You should be able to reuse the function `updateParentPointers()` for this purpose. 
     
 
-In `mergeLeafPages()` and `mergeInternalPages()` you will implement code to merge pages, effectively performing the inverse of `splitLeafPage()` and `splitInternalPage()`. Be sure to call `setEmptyPage()` on deleted pages to make them available for reuse.
+In `mergeLeafPages()` and `mergeInternalPages()` you will implement code to merge pages, effectively performing the inverse of `splitLeafPage()` and `splitInternalPage()`.  You will find the function `deleteParentEntry()` extremely useful for handling all the different recursive cases.  Be sure to call `setEmptyPage()` on deleted pages to make them available for reuse.
 
 ***
 
