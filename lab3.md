@@ -43,30 +43,30 @@ $ git pull upstream master
 
 ## 2. Search
 
-Take a look at `BPlusTreeFile.java`. This is the core file for the implementation of the B+Tree and where you will write all your code for this lab. Unlike the HeapFile, the BPlusTreeFile consists of four different kinds of pages. As you would expect, there are two different kinds of pages for the nodes of the tree: internal pages and leaf pages. Internal pages are implemented in `BPlusTreeInternalPage.java`, and leaf pages are implemented in `BPlusTreeLeafPage.java`. Additionally, header pages keep track of which pages in the file are in use, and are implemented in `BPlusTreeHeaderPage.java`. Lastly, there is one page at the beginning of every BPlusTreeFile which points to the root page of the tree and the first header page. This singleton page is implemented in `BPlusTreeRootPtrPage.java`. Familiarize yourself with the interface of these four classes, especially `BPlusTreeInternalPage.java` and `BPlusTreeLeafPage.java`. You will need to use these classes in your implementation of the B+Tree.
+Take a look at `BTreeFile.java`. This is the core file for the implementation of the B+Tree and where you will write all your code for this lab. Unlike the HeapFile, the BTreeFile consists of four different kinds of pages. As you would expect, there are two different kinds of pages for the nodes of the tree: internal pages and leaf pages. Internal pages are implemented in `BTreeInternalPage.java`, and leaf pages are implemented in `BTreeLeafPage.java`. Additionally, header pages keep track of which pages in the file are in use, and are implemented in `BTreeHeaderPage.java`. Lastly, there is one page at the beginning of every BTreeFile which points to the root page of the tree and the first header page. This singleton page is implemented in `BTreeRootPtrPage.java`. Familiarize yourself with the interface of these four classes, especially `BTreeInternalPage.java` and `BTreeLeafPage.java`. You will need to use these classes in your implementation of the B+Tree.
 
 
 Your first job is to implement the `findLeafPage()` function in
-`BPlusTreeFile.java`. This function is used to find the appropriate leaf page given a particular key value, and is used for both searches and inserts. For example, suppose we have a B+Tree with two leaf pages. The root node is an internal page with one entry containing one key and two child pointers. Suppose the single entry has a key value of 6. Given a value of 1, this function should return the first leaf page. Likewise, given a value of 8, this function should return the second page. The less obvious case is if we are given a key value of 6.  There may be duplicate keys, so there could be 6's on both leaf pages. Think carefully about how this function should behave when we are given a key value equal to one of the entries in the internal nodes.
+`BTreeFile.java`. This function is used to find the appropriate leaf page given a particular key value, and is used for both searches and inserts. For example, suppose we have a B+Tree with two leaf pages. The root node is an internal page with one entry containing one key and two child pointers. Suppose the single entry has a key value of 6. Given a value of 1, this function should return the first leaf page. Likewise, given a value of 8, this function should return the second page. The less obvious case is if we are given a key value of 6.  There may be duplicate keys, so there could be 6's on both leaf pages. Think carefully about how this function should behave when we are given a key value equal to one of the entries in the internal nodes.
     
 
-Your `findLeafPage()` function should recursively search through internal nodes until it reaches the leaf page corresponding to the provided key value. In order to find the appropriate child page at each step, you should iterate through the entries in the internal page and compare the entry value to the provided key value. `BPlusTreeInternalPage.iterator()` provides access to the entries in the internal page using the interface defined in `BPlusTreeEntry.java`. This iterator allows you to iterate through the key values in the internal page and access the left and right child page ids for each key. 
+Your `findLeafPage()` function should recursively search through internal nodes until it reaches the leaf page corresponding to the provided key value. In order to find the appropriate child page at each step, you should iterate through the entries in the internal page and compare the entry value to the provided key value. `BTreeInternalPage.iterator()` provides access to the entries in the internal page using the interface defined in `BTreeEntry.java`. This iterator allows you to iterate through the key values in the internal page and access the left and right child page ids for each key. 
 
     
-Your `findLeafPage()` code must also handle the case when the provided key value f is null.  If the provided value is null, return the left-most child every time in order to find the left-most leaf page. Finding the left-most leaf page is useful for scanning the entire file. Once the correct leaf page is found, you should return it.  You can check the type of page using the `pgcateg()` function in `BPlusTreePageId.java`. You can assume that only leaf and internal pages will be passed to this function.
+Your `findLeafPage()` code must also handle the case when the provided key value f is null.  If the provided value is null, return the left-most child every time in order to find the left-most leaf page. Finding the left-most leaf page is useful for scanning the entire file. Once the correct leaf page is found, you should return it.  You can check the type of page using the `pgcateg()` function in `BTreePageId.java`. You can assume that only leaf and internal pages will be passed to this function.
     
 
 Remember to use the BufferPool `getPage()` function to get each internal page and leaf page. Every internal (non-leaf) page your implementation visits should be fetched with READ_ONLY permission, except the returned leaf page, which should be fetched with the permission provided as an argument to the function.  These permission levels will not matter for this lab, but they will be important for the code to function correctly in future labs.
 
 ***
 
-**Exercise 1: BPlusTreeFile.findLeafPage()**
+**Exercise 1: BTreeFile.findLeafPage()**
 
   
-  Implement BPlusTreeFile.findLeafPage().
+  Implement BTreeFile.findLeafPage().
 
   
-  After completing this exercise, you should be able to pass all the unit tests in `BPlusTreeFileReadTest.java` and the system tests in `BPlusTreeScanTest.java`.
+  After completing this exercise, you should be able to pass all the unit tests in `BTreeFileReadTest.java` and the system tests in `BTreeScanTest.java`.
 
 ***
 
@@ -79,7 +79,7 @@ In order to keep the tuples of the B+Tree in sorted order and maintain the integ
 As described in the textbook, attempting to insert a tuple into a full leaf page should cause that page to split so that the tuples are evenly distributed between the two new pages. Each time a leaf page splits, a new entry corresponding to the first tuple in the second page will need to be added to the parent node. Occasionally, the internal node may also be full and unable to accept new entries. In that case, the parent should split and add a new entry to its parent. This may cause recursive splits and ultimately the creation of a new root node. 
 
 
-In this exercise you will implement `splitLeafPage()` and `splitInternalPage()` in `BPlusTreeFile.java`. If the page being split is the root page, you will need to create a new internal node to become the new root page, and update the BPlusTreeRootPtrPage. Otherwise, you will need to fetch the parent page with READ_WRITE permissions, recursively split it if necessary, and add a new entry. In `splitLeafPage()` you should "copy" the key up to the parent page, while in `splitInternalPage()` you should "push" the key up to the parent page. Review section 10.5 in the text book if this is confusing. Remember to update the parent pointers of the new pages as needed. When an internal node is split, you will need to update the parent pointers of all the children that were moved. You may find the function `updateParentPointers()` useful for this task. Additionally, remember to update the sibling pointers of any leaf pages that were split. Finally, return the page into which the new tuple or entry should be inserted, as indicated by the provided key field. 
+In this exercise you will implement `splitLeafPage()` and `splitInternalPage()` in `BTreeFile.java`. If the page being split is the root page, you will need to create a new internal node to become the new root page, and update the BTreeRootPtrPage. Otherwise, you will need to fetch the parent page with READ_WRITE permissions, recursively split it if necessary, and add a new entry.  You will find the function getParentWithEmptySlots() extremely useful for handling these different cases.  In `splitLeafPage()` you should "copy" the key up to the parent page, while in `splitInternalPage()` you should "push" the key up to the parent page. Review section 10.5 in the text book if this is confusing. Remember to update the parent pointers of the new pages as needed. When an internal node is split, you will need to update the parent pointers of all the children that were moved. You may find the function `updateParentPointers()` useful for this task. Additionally, remember to update the sibling pointers of any leaf pages that were split. Finally, return the page into which the new tuple or entry should be inserted, as indicated by the provided key field. 
     
 
 Whenever you create a new page, either because of splitting a page or creating a new root page, call `getEmptyPage()` to get the page number of the new page. This function is an abstraction which will allow us to reuse pages that have been deleted due to merging (covered in the next section).
@@ -93,11 +93,11 @@ In both `splitLeafPage()` and `splitInternalPage()`, you will need to update the
 
 
   
-  Implement BPlusTreeFile.splitLeafPage() and BPlusTreeFile.splitInternalPage().
+  Implement BTreeFile.splitLeafPage() and BTreeFile.splitInternalPage().
 
-  After completing this exercise, you should be able to pass the unit tests in `BPlusTreeInsertTest.java`. Some of the test cases may take a few seconds to complete. This file will test that your code inserts tuples and splits pages correcty, and also handles duplicate tuples.
+  After completing this exercise, you should be able to pass the unit tests in `BTreeInsertTest.java`. You should also be able to pass the system tests in `systemtest/BTreeInsertTest.java`.  Some of the system test cases may take a few seconds to complete. These files will test that your code inserts tuples and splits pages correcty, and also handles duplicate tuples.
 
-<!-- After completing this exercise, you should be able to pass the unit tests in `BPlusTreeDeadlockTest.java` and `BPlusTreeInsertTest.java`. Some of the test cases may take a few seconds to complete. `BPlusTreeDeadlockTest` will test that you have implemented locking correctly and can handle deadlocks. `BPlusTreeInsertTest` will test that your code inserts tuples and splits pages correcty, and also handles duplicate tuples and next key locking. -->
+<!-- After completing this exercise, you should be able to pass the unit tests in `BTreeDeadlockTest.java` and `BTreeInsertTest.java`. Some of the test cases may take a few seconds to complete. `BTreeDeadlockTest` will test that you have implemented locking correctly and can handle deadlocks. `BTreeInsertTest` will test that your code inserts tuples and splits pages correcty, and also handles duplicate tuples and next key locking. -->
 
 ***
 
@@ -113,7 +113,7 @@ In order to keep the tree balanced and not waste unnecessary space, deletions in
 As described in the textbook, attempting to delete a tuple from a leaf page that is less than half full should cause that page to either steal tuples from one of its siblings or merge with one of its siblings.  If one of the page's siblings has tuples to spare, the tuples should be evenly distributed between the two pages, and the parent's entry should be updated accordingly. However, if the sibling is also at minimum occupancy, then the two pages should merge and the entry deleted from the parent. Occasionally, deleting an entry from the parent will cause the parent to become less than half full. In this case, the parent should steal entries from its siblings or merge with a sibling. This may cause recursive merges or deletion of the root node if the last entry is deleted from the root node. 
 
 
-In this exercise you will finish implementing `handleMinOccupancyLeafPage()`,  `handleMinOccupancyInternalPage()`, `mergeLeafPages()` and `mergeInternalPages()` in `BPlusTreeFile.java`. In the first two functions you will implement code to evenly redistribute tuples/entries if the siblings have tuples/entries to spare. Remember to update the corresponding key field in the parent. In `handleMinOccupancyInternalPage()`, you will also need to update the parent pointers of the children that were moved. You should be able to reuse the function `updateParentPointers()` for this purpose. 
+In this exercise you will implement `stealFromLeafPage()`, `stealFromLeftInternalPage()`, `stealFromRightInternalPage()`, `mergeLeafPages()` and `mergeInternalPages()` in `BTreeFile.java`. In the first three functions you will implement code to evenly redistribute tuples/entries if the siblings have tuples/entries to spare. Remember to update the corresponding key field in the parent. In `stealFromLeftInternalPage()`/`stealFromRightInternalPage()`, you will also need to update the parent pointers of the children that were moved. You should be able to reuse the function `updateParentPointers()` for this purpose. 
     
 
 In `mergeLeafPages()` and `mergeInternalPages()` you will implement code to merge pages, effectively performing the inverse of `splitLeafPage()` and `splitInternalPage()`. Be sure to call `setEmptyPage()` on deleted pages to make them available for reuse.
@@ -124,11 +124,11 @@ In `mergeLeafPages()` and `mergeInternalPages()` you will implement code to merg
 
 
   
-  Implement the missing code in BPlusTreeFile.handleMinOccupancyLeafPage(), BPlusTreeFile.handleMinOccupancyInternalPage(), BPlusTreeFile.mergeLeafPages() and BPlusTreeFile.mergeInternalPages().
+  Implement BTreeFile.stealFromLeafPage(), BTreeFile.stealFromLeftInternalPage(), BTreeFile.stealFromRightInternalPage(), BTreeFile.mergeLeafPages() and BTreeFile.mergeInternalPages().
 
   
-  After completing this exercise, you should be able to pass the unit tests in `BPlusTreeFileDeleteTest.java`. 
-<!--and the system test in `BPlusTreeTest.java`. Please note that the test in `BPlusTreeTest.java` may take up to a minute to complete.-->
+  After completing this exercise, you should be able to pass the unit tests in `BTreeFileDeleteTest.java`.  You should also be able to pass the system tests in `systemtest/BTreeFileDeleteTest.java`.  The system tests may take several seconds to complete since they create a large B+ tree in order to fully test the system. 
+<!--and the system test in `BTreeTest.java`. Please note that the test in `BTreeTest.java` may take up to a minute to complete.-->
 
 ***
 
@@ -143,7 +143,9 @@ writeup describing your approach.  This writeup should:
 *  Describe any design decisions you made, including anything that was
 difficult or unexpected.
 
-*  Discuss and justify any changes you made outside of BPlusTreeFile.java.
+*  Discuss and justify any changes you made outside of BTreeFile.java.
+
+*  Optional: How long did this lab take you? Do you have any suggestions for ways to improve it?
 
 
 
@@ -310,7 +312,7 @@ make sure it produces no errors (passes all of the tests) from both
 
 
 **Important:** Before testing, we will replace your <tt>build.xml</tt>,
-<tt>HeapFileEncoder.java</tt>, <tt>BPlusTreeFileEncoder.java</tt>, and the entire contents of the
+<tt>HeapFileEncoder.java</tt>, <tt>BTreeFileEncoder.java</tt>, and the entire contents of the
 <tt>test/</tt> directory with our version of these files.  This
 means you cannot change the format of the <tt>.dat</tt> files!  You should
 also be careful when changing APIs and make sure that any changes you make 
@@ -320,7 +322,7 @@ grade it. It will look roughly like this:
 
 ```
 $ git pull
-[replace build.xml, HeapFileEncoder.java, BPlusTreeFileEncoder.java and test]
+[replace build.xml, HeapFileEncoder.java, BTreeFileEncoder.java and test]
 $ ant test
 $ ant systemtest
 [additional tests]
