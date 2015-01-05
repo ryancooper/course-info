@@ -50,7 +50,7 @@ Your first job is to implement the `findLeafPage()` function in
 `BTreeFile.java`. This function is used to find the appropriate leaf page given a particular key value, and is used for both searches and inserts. For example, suppose we have a B+Tree with two leaf pages (See Figure 1). The root node is an internal page with one entry containing one key and two child pointers. Suppose the single entry has a key value of 6. Given a value of 1, this function should return the first leaf page. Likewise, given a value of 8, this function should return the second page. The less obvious case is if we are given a key value of 6.  There may be duplicate keys, so there could be 6's on both leaf pages. In this case, the function should return the first leaf page.
 
 <p align="center">
-<img width=500 src="simple_tree.pdf"><br>
+<img width=500 src="simple_tree.png"><br>
 <i>Figure 1: A simple B+ Tree with duplicate keys</i>
 </p>
     
