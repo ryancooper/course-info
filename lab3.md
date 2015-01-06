@@ -170,7 +170,7 @@ In `mergeLeafPages()` and `mergeInternalPages()` you will implement code to merg
 
 **Bonus Exercise 4: (10% extra credit)**
   
-  Implement `BTreeReverseScan` which scans the `BTreeFile` in reverse.  You can use `BTreeScan` as a starting point, but you will probably need to implement a reverse iterator in `BTreeFile`.  You will also likely need to implement a separate version of `BTreeFile.findLeafPage()`.  We have provided reverse iterators on `BTreeLeafPage` and `BTreeInternalPage` which you may find useful.  You should also write code to test that your implementation works correctly.  `BTreeScanTest.java` is a good place to look for ideas.
+  Create and implement a class called `BTreeReverseScan` which scans the `BTreeFile` in reverse.  You can use `BTreeScan` as a starting point, but you will probably need to implement a reverse iterator in `BTreeFile`.  You will also likely need to implement a separate version of `BTreeFile.findLeafPage()`.  We have provided reverse iterators on `BTreeLeafPage` and `BTreeInternalPage` which you may find useful.  You should also write code to test that your implementation works correctly.  `BTreeScanTest.java` is a good place to look for ideas.
 
 ***
 
