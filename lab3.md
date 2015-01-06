@@ -98,6 +98,8 @@ In this exercise you will implement `splitLeafPage()` and `splitInternalPage()` 
 
 Whenever you create a new page, either because of splitting a page or creating a new root page, call `getEmptyPage()` to get the new page. This function is an abstraction which will allow us to reuse pages that have been deleted due to merging (covered in the next section).
 
+We expect that you will interact with leaf and internal pages using `BTreeLeafPage.iterator()` and `BTreeInternalPage.iterator()` to iterate through the tuples/entries in each page.  For convenience, we have also provided reverse iterators for both types of pages: `BTreeLeafPage.reverseIterator()` and 
+
 
 In both `splitLeafPage()` and `splitInternalPage()`, you will need to update the set of `dirtypages` with any newly created pages as well as any pages modified due to new pointers or new data. This is where `BTreeFile.getPage()` will come in handy.  Each time you fetch a page, `BTreeFile.getPage()` will check to see if the page is already stored in the local cache (`dirtypages`), and if it can't find the requested page there, it fetches it from the buffer pool.  `BTreeFile.getPage()` also adds pages to the `dirtypages` cache if they are fetched with read-write permission, since presumably they will soon be dirtied. One advantage of this approach is that it prevents loss of updates if the same pages are accessed multiple times during a single tuple insertion or deletion.  
 
@@ -144,7 +146,7 @@ As described in the textbook, attempting to delete a tuple from a leaf page that
 In this exercise you will implement `stealFromLeafPage()`, `stealFromLeftInternalPage()`, `stealFromRightInternalPage()`, `mergeLeafPages()` and `mergeInternalPages()` in `BTreeFile.java`. In the first three functions you will implement code to evenly redistribute tuples/entries if the siblings have tuples/entries to spare. Remember to update the corresponding key field in the parent (look carefully at how this is done in Figure 4 - keys are effectively "rotated" through the parent).  In `stealFromLeftInternalPage()`/`stealFromRightInternalPage()`, you will also need to update the parent pointers of the children that were moved. You should be able to reuse the function `updateParentPointers()` for this purpose. 
     
 
-In `mergeLeafPages()` and `mergeInternalPages()` you will implement code to merge pages, effectively performing the inverse of `splitLeafPage()` and `splitInternalPage()`.  You will find the function `deleteParentEntry()` extremely useful for handling all the different recursive cases.  Be sure to call `setEmptyPage()` on deleted pages to make them available for reuse.
+In `mergeLeafPages()` and `mergeInternalPages()` you will implement code to merge pages, effectively performing the inverse of `splitLeafPage()` and `splitInternalPage()`.  You will find the function `deleteParentEntry()` extremely useful for handling all the different recursive cases.  Be sure to call `setEmptyPage()` on deleted pages to make them available for reuse.  As with the previous exercises, we recommend using `BTreeFile.getPage()` to encapsulate the process of fetching pages and keeping the list of dirty pages up to date.
 
 ***
 
