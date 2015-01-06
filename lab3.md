@@ -125,19 +125,19 @@ Note that in a major departure from `HeapFile.insertTuple()`, `BTreeFile.insertT
 In order to keep the tree balanced and not waste unnecessary space, deletions in a B+Tree may cause pages to merge (see Figure 3). You may find it useful to review section 10.6 in the textbook.
     
 <p align="center">
-<img width=500 src="redist_leaf.png"><br>
-<img width=500 src="redist_internal.png"><br>
-<i>Figure 3: Redistributing pages</i>
-</p>
-
-
-As described in the textbook, attempting to delete a tuple from a leaf page that is less than half full should cause that page to either steal tuples from one of its siblings or merge with one of its siblings.  If one of the page's siblings has tuples to spare, the tuples should be evenly distributed between the two pages, and the parent's entry should be updated accordingly (see Figure 3). However, if the sibling is also at minimum occupancy, then the two pages should merge and the entry deleted from the parent (see Figure 4). Occasionally, deleting an entry from the parent will cause the parent to become less than half full. In this case, the parent should steal entries from its siblings or merge with a sibling. This may cause recursive merges or deletion of the root node if the last entry is deleted from the root node. 
-
-<p align="center">
 <img width=500 src="merging_leaf.png"><br>
 <img width=500 src="merging_internal.png"><br>
-<i>Figure 4: Merging pages</i>
+<i>Figure 3: Merging pages</i>
 </p>
+
+As described in the textbook, attempting to delete a tuple from a leaf page that is less than half full should cause that page to either steal tuples from one of its siblings or merge with one of its siblings.  If one of the page's siblings has tuples to spare, the tuples should be evenly distributed between the two pages, and the parent's entry should be updated accordingly (see Figure 4). However, if the sibling is also at minimum occupancy, then the two pages should merge and the entry deleted from the parent. Occasionally, deleting an entry from the parent will cause the parent to become less than half full. In this case, the parent should steal entries from its siblings or merge with a sibling. This may cause recursive merges or deletion of the root node if the last entry is deleted from the root node. 
+
+<p align="center">
+<img width=500 src="redist_leaf.png"><br>
+<img width=500 src="redist_internal.png"><br>
+<i>Figure 4: Redistributing pages</i>
+</p>
+
 
 
 
