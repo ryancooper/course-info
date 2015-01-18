@@ -234,7 +234,12 @@ the last section.
    Check it periodically as well as Piazza's announcements for updates on
    when the new labs are released.
 
-2. Once a lab is released, pulling in the changes should be fairly simple:
+2. Once a lab is released, create a branch to pull in the changes.
+   ```bash
+        $ git checkout -b lab2
+   ```
+   
+  Pulling in the changes should be fairly simple:
 
    ```bash
         $ git pull upstream master
@@ -246,6 +251,10 @@ the last section.
    ```bash
         $ git fetch upstream
         $ git merge upstream/master
+   ```
+   Now commit to your new branch:
+   ```bash
+	$ git push origin lab2
    ```
 
 3. If you've followed the instructions in each lab, you should have no
