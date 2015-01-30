@@ -234,7 +234,7 @@ the last section.
    Check it periodically as well as Piazza's announcements for updates on
    when the new labs are released.
 
-2. Once a lab is released, create a branch to pull in the changes.
+2. Once a lab is released, create a branch to pull in the changes.  From your simpledb directory:
    ```bash
         $ git checkout -b lab2
    ```
