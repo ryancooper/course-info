@@ -50,11 +50,13 @@ for this lab that are not in the original code distribution you received.
 
 You will need to add these new files to your release. The easiest way
 to do this is to change to your project directory (probably called simple-db-hw) 
-and pull from the master GitHub repository:
+and pull from the master GitHub repository into a new branch named lab2:
 
 ```
 $ cd simple-db-hw
+$ git checkout -b lab2
 $ git pull upstream master
+$ git push origin lab2
 ```
 
 **Eclipse users** will have to take one more step for their code to compile.
