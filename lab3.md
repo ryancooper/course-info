@@ -282,7 +282,6 @@ If the above command worked for you, you can skip to item 6 below.  If not, subm
 3. This is the most important part: **push** your solutions to GitHub.
 
    ```bash
-   $ git push origin master
    $ git push origin lab3 
    ```
 
