@@ -31,12 +31,13 @@ that the unit tests we provide are to help guide your implementation along,
 but they are not intended to be comprehensive or to establish correctness.
 
 
-You will need to add these new files to your release. The easiest way
-to do this is to change to your project directory (probably called simple-db-hw) 
+You will need to add these new files to your release and set up your lab4 branch. The easiest way
+to do this is to change to your project directory (probably called simple-db-hw), set up the branch, 
 and pull from the master GitHub repository:
 
 ```
 $ cd simple-db-hw
+$ git checkout -b lab4
 $ git pull upstream master
 ```
 
@@ -570,19 +571,7 @@ If the above command worked for you, you can skip to item 6 below.  If not, subm
     $ git commit -a -m 'Lab 4'
    ```
 
-3. Delete any prior local and remote tag (*this will return an error if you have not tagged previously; this allows you to submit multiple times*)
-
-   ```bash
-   $ git tag -d lab4
-   $ git push origin :refs/tags/lab4
-   ```
-
-4. Tag your last commit as the lab to be graded
-   ```bash
-   $ git tag -a lab4 -m 'lab4'
-   ```
-
-5. This is the most important part: **push** your solutions to GitHub.
+3. This is the most important part: **push** your solutions to GitHub.
 
    ```bash
    $ git push origin master
