@@ -342,7 +342,7 @@ implemented `TransactionId`.
   `AbortEvictionTest` system test.  You may find the `TransactionTest` system test
   illustrative, but it will likely fail until you complete the next exercise.
   
-You may remember that B+ trees can prevent phantom tuples from showing up between two consecutive range scans by using next-key locking. Since SimpleDB uses page-level, strict two-phase locking, protection against phantoms effectively comes for free if the B+ tree is implemented correctly. Thus, at this point you should also be able to pass BPlusTreeNextKeyLockingTest.
+You may remember that B+ trees can prevent phantom tuples from showing up between two consecutive range scans by using next-key locking. Since SimpleDB uses page-level, strict two-phase locking, protection against phantoms effectively comes for free if the B+ tree is implemented correctly. Thus, at this point you should also be able to pass BTreeNextKeyLockingTest.
 
 
 ***
@@ -418,7 +418,7 @@ to retry transaction *t*.
   on your policy). If they seem to hang indefinitely, then you probably
   have an unresolved deadlock. These tests construct simple deadlock
   situations that your code should be able to escape.  Additionally, you should 
-  be able to pass the tests in `test/simpledb/BPlusTreeDeadlockTest.java` if you have
+  be able to pass the tests in `test/simpledb/BTreeDeadlockTest.java` if you have
   implemented locking correctly inside of your B+ tree code.
 
   
@@ -434,7 +434,7 @@ to retry transaction *t*.
 
   
 
-  Your code should now should pass the `TransactionTest` system test (which may also run for quite a long time).  If everything is implemented correctly, you should also be able to pass the `BPlusTreeTest` system test.  We expect many people to find `BPlusTreeTest` difficult, so it's not required, but we'll give extra credit to anyone who can run it successfully.  Please note that this test may take up to a minute to complete.
+  Your code should now should pass the `TransactionTest` system test (which may also run for quite a long time).  If everything is implemented correctly, you should also be able to pass the `BTreeTest` system test.  We expect many people to find `BTreeTest` difficult, so it's not required, but we'll give extra credit to anyone who can run it successfully.  Please note that this test may take up to a minute to complete.
 
    At this point, you should have a recoverable database, in the
 sense that if the database system crashes (at a point other than
@@ -635,7 +635,7 @@ make sure it produces no errors (passes all of the tests) from both
 
 
 **Important:** Before testing, we will replace your <tt>build.xml</tt>,
-<tt>HeapFileEncoder.java</tt>, <tt>BPlusTreeFileEncoder.java</tt>, and the entire contents of the
+<tt>HeapFileEncoder.java</tt>, <tt>BTreeFileEncoder.java</tt>, and the entire contents of the
 <tt>test/</tt> directory with our version of these files!  This
 means you cannot change the format of <tt>.dat</tt> files!  You should
 therefore be careful changing our APIs. This also means you need to test
@@ -645,7 +645,7 @@ grade it. It will look roughly like this:
 
 ```
 $ git pull
-[replace build.xml, HeapFileEncoder.java, BPlusTreeFileEncoder.java and test]
+[replace build.xml, HeapFileEncoder.java, BTreeFileEncoder.java and test]
 $ ant test
 $ ant systemtest
 [additional tests]
